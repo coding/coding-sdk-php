@@ -1,0 +1,21 @@
+{
+    "name": "coding/sdk",
+    "description": "CODING.net SDK for PHP",
+    "type": "library",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.16",
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "Apache-2.0",
+    "autoload": {
+        "psr-4": { "Coding\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Coding\\Tests\\": "tests/" }
+    }
+}
