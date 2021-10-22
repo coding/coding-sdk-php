@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [7.4, 8.0]
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Prepare
+        run: composer install
+
+      - name: Lint
+        run: ./vendor/bin/phpcs --extensions=php --standard=PSR12 src/ tests/
+
+      - name: PHPMD
+        run: ./vendor/bin/phpmd . text phpmd.xml --exclude vendor
+
+      - name: Test
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-filter src/ tests/
+
+      - name: codecov
+        uses: codecov/codecov-action@v2
