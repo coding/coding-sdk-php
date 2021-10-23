@@ -2,6 +2,7 @@
 
 namespace Coding;
 
+use Coding\Exceptions\ApiError;
 use GuzzleHttp\Client;
 
 class Core
