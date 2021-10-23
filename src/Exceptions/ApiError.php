@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding;
+namespace Coding\Exceptions;
 
 use Exception;
 

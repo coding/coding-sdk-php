@@ -2,7 +2,7 @@
 
 namespace Coding\Tests;
 
-use Coding\ApiError;
+use Coding\Exceptions\ApiError;
 use Coding\Core;
 use GuzzleHttp\Psr7\Response;
 
