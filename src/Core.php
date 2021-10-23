@@ -9,7 +9,7 @@ class Core
     protected string $token;
     protected Client $client;
 
-    public function __construct(string $token, Client $client = null)
+    public function __construct(string $token = '', Client $client = null)
     {
         $this->token = $token;
         $this->client = $client ?? new Client();
