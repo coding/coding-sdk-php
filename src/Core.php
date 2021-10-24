@@ -34,4 +34,9 @@ class Core
         }
         return $result['Response'];
     }
+
+    public function setToken(string $token)
+    {
+        $this->token = $token;
+    }
 }

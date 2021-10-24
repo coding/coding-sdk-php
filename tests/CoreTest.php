@@ -61,7 +61,8 @@ class CoreTest extends TestCase
                 ]
             )
             ->willReturn(new Response(200, [], $responseBody));
-        $core = new Core($this->token, $this->clientMock);
+        $core = new Core('', $this->clientMock);
+        $core->setToken($this->token);
         $this->expectException(ApiError::class);
         $this->expectExceptionMessage(json_decode($responseBody, true)['Response']['Error']['Message']);
         $core->request($action, $data);
