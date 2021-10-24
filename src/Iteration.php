@@ -19,10 +19,10 @@ class Iteration
         $validator = Validator::getInstance()->make($data, [
             'ProjectName' => 'string|required',
             'Name' => 'string|required',
-            'Goal' => 'string',
-            'Assignee' => 'integer',
-            'StartAt' => 'date_format:Y-m-d',
-            'EndAt' => 'date_format:Y-m-d|after:StartAt',
+            'Goal' => 'nullable|string',
+            'Assignee' => 'nullable|integer',
+            'StartAt' => 'nullable|date_format:Y-m-d',
+            'EndAt' => 'nullable|date_format:Y-m-d|after:StartAt',
         ]);
         if ($validator->fails()) {
             // TODO Laravel ValidationException no message
