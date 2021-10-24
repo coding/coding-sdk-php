@@ -9,7 +9,7 @@ class Iteration
 {
     private Core $core;
 
-    public function __construct(string $token, Core $core = null)
+    public function __construct(string $token = '', Core $core = null)
     {
         $this->core = $core ?? new Core($token);
     }
@@ -30,5 +30,10 @@ class Iteration
         }
         $response = $this->core->request('CreateIteration', $data);
         return $response['Iteration'];
+    }
+
+    public function setToken(string $token)
+    {
+        $this->core->setToken($token);
     }
 }

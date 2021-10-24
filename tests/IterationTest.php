@@ -52,7 +52,8 @@ class IterationTest extends TestCase
             $data
         ])->andReturn($response);
 
-        $iteration = new Iteration($this->token, $coreMock);
+        $iteration = new Iteration('', $coreMock);
+        $iteration->setToken($this->token);
         $result = $iteration->create($data);
         $this->assertEquals($response['Iteration'], $result);
     }
