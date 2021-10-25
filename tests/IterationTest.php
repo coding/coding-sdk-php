@@ -10,8 +10,6 @@ class IterationTest extends TestCase
 {
     public function testCreateSuccessWithOnlyRequiredParams()
     {
-        $coreMock = \Mockery::mock(Core::class, [])->makePartial();
-
         $response = json_decode(
             file_get_contents($this->dataPath('CreateIterationResponse.json')),
             true
@@ -20,20 +18,18 @@ class IterationTest extends TestCase
             'ProjectName' => $this->projectName,
             'Name' => $this->faker->title,
         ];
-        $coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
             'CreateIteration',
             $data
         ])->andReturn($response);
 
-        $iteration = new Iteration($this->token, $coreMock);
+        $iteration = new Iteration($this->token, $this->coreMock);
         $result = $iteration->create($data);
         $this->assertEquals($response['Iteration'], $result);
     }
 
     public function testCreateSuccessWithRequiredParamsAndNull()
     {
-        $coreMock = \Mockery::mock(Core::class, [])->makePartial();
-
         $response = json_decode(
             file_get_contents($this->dataPath('CreateIterationResponse.json')),
             true
@@ -43,20 +39,18 @@ class IterationTest extends TestCase
             'Name' => $this->faker->title,
             'Goal' => null,
         ];
-        $coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
             'CreateIteration',
             $data
         ])->andReturn($response);
 
-        $iteration = new Iteration($this->token, $coreMock);
+        $iteration = new Iteration($this->token, $this->coreMock);
         $result = $iteration->create($data);
         $this->assertEquals($response['Iteration'], $result);
     }
 
     public function testCreateSuccessWithAllParams()
     {
-        $coreMock = \Mockery::mock(Core::class, [])->makePartial();
-
         $response = json_decode(
             file_get_contents($this->dataPath('CreateIterationResponse.json')),
             true
@@ -70,12 +64,12 @@ class IterationTest extends TestCase
             'StartAt' => $startAt,
             'EndAt' => date('Y-m-d', strtotime($startAt) + $this->faker->randomDigitNotZero() * 86400),
         ];
-        $coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
             'CreateIteration',
             $data
         ])->andReturn($response);
 
-        $iteration = new Iteration('', $coreMock);
+        $iteration = new Iteration('', $this->coreMock);
         $iteration->setToken($this->token);
         $result = $iteration->create($data);
         $this->assertEquals($response['Iteration'], $result);

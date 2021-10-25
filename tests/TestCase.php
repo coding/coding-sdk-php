@@ -2,25 +2,29 @@
 
 namespace Coding\Tests;
 
+use Coding\Core;
 use Faker\Factory;
 use Faker\Generator;
-use GuzzleHttp\Client;
-use PHPUnit\Framework\TestCase as BaseTestBase;
+use Mockery\Mock;
+use PHPUnit\Framework\TestCase as PhpUnitTestBase;
 
-class TestCase extends BaseTestBase
+class TestCase extends PhpunitTestBase
 {
     protected Generator $faker;
-    protected Client $clientMock;
     protected string $token;
     protected string $projectName;
+    protected bool $needCoreMock = true;
+    protected $coreMock;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->faker = Factory::create();
-        $this->clientMock = $this->getMockBuilder(Client::class)->getMock();
         $this->token = $this->faker->md5;
         $this->projectName = $this->faker->slug;
+        if ($this->needCoreMock) {
+            $this->coreMock = \Mockery::mock(Core::class, [])->makePartial();
+        }
     }
 
     protected function dataPath($fileName): string
