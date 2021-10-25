@@ -4,10 +4,20 @@ namespace Coding\Tests;
 
 use Coding\Exceptions\ApiError;
 use Coding\Core;
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 
 class CoreTest extends TestCase
 {
+    private Client $clientMock;
+    protected bool $needCoreMock = false;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->clientMock = $this->getMockBuilder(Client::class)->getMock();
+    }
+
     public function testRequestSuccess()
     {
         $responseBody = file_get_contents($this->dataPath('CreateIterationResponse.json'));
