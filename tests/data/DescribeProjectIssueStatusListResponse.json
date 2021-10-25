@@ -1,0 +1,79 @@
+{
+  "Response" : {
+    "ProjectIssueStatusList" : [
+      {
+        "CreatedAt" : 1634639726000,
+        "IsDefault" : true,
+        "IssueStatus" : {
+          "CreatedAt" : 1572178128000,
+          "Description" : "",
+          "Id" : 1227034,
+          "Index" : 3,
+          "IsSystem" : true,
+          "Name" : "未开始",
+          "Type" : "TODO",
+          "UpdatedAt" : 1572178128000
+        },
+        "IssueStatusId" : 1227034,
+        "IssueType" : "REQUIREMENT",
+        "Sort" : 0,
+        "UpdatedAt" : 1634639726000
+      },
+      {
+        "CreatedAt" : 1634639726000,
+        "IsDefault" : false,
+        "IssueStatus" : {
+          "CreatedAt" : 1572178128000,
+          "Description" : "",
+          "Id" : 1227037,
+          "Index" : 4,
+          "IsSystem" : true,
+          "Name" : "处理中",
+          "Type" : "PROCESSING",
+          "UpdatedAt" : 1572178128000
+        },
+        "IssueStatusId" : 1227037,
+        "IssueType" : "REQUIREMENT",
+        "Sort" : 0,
+        "UpdatedAt" : 1634639726000
+      },
+      {
+        "CreatedAt" : 1634639726000,
+        "IsDefault" : false,
+        "IssueStatus" : {
+          "CreatedAt" : 1572178128000,
+          "Description" : "",
+          "Id" : 1227040,
+          "Index" : 5,
+          "IsSystem" : true,
+          "Name" : "待验证",
+          "Type" : "PROCESSING",
+          "UpdatedAt" : 1572178128000
+        },
+        "IssueStatusId" : 1227040,
+        "IssueType" : "REQUIREMENT",
+        "Sort" : 0,
+        "UpdatedAt" : 1634639726000
+      },
+      {
+        "CreatedAt" : 1634639726000,
+        "IsDefault" : false,
+        "IssueStatus" : {
+          "CreatedAt" : 1572178128000,
+          "Description" : "",
+          "Id" : 1227058,
+          "Index" : 11,
+          "IsSystem" : true,
+          "Name" : "已完成",
+          "Type" : "COMPLETED",
+          "UpdatedAt" : 1572178128000
+        },
+        "IssueStatusId" : 1227058,
+        "IssueType" : "REQUIREMENT",
+        "Sort" : 0,
+        "UpdatedAt" : 1634639726000
+      }
+    ],
+    "RequestId" : "3a8bb049-e28f-01c9-9990-0f17b92952c4"
+  }
+}
