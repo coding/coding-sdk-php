@@ -1,0 +1,164 @@
+{
+    "Response": {
+        "Issue": {
+            "Epic": {
+                "Code": 0,
+                "Type": "",
+                "Name": "",
+                "IssueStatusId": 0,
+                "IssueStatusName": "",
+                "Priority": "",
+                "Assignee": {
+                    "Id": 0,
+                    "Status": 0,
+                    "Avatar": "",
+                    "Name": "",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                }
+            },
+            "ParentType": "MISSION",
+            "Code": 2761,
+            "Type": "MISSION",
+            "Name": "Inventore animi deleniti quis officia unde et.",
+            "Description": "Rerum et aliquam velit vel ea aut.",
+            "IterationId": 0,
+            "IssueStatusId": 1227034,
+            "IssueStatusName": "未开始",
+            "IssueStatusType": "TODO",
+            "Priority": "2",
+            "Assignee": {
+                "Id": 7876900,
+                "Status": 1,
+                "Avatar": "https:\/\/coding-net-production-static-ci.codehub.cn\/WM-TEXT-AVATAR-ZGtSxcNBFKoNkHkQbMIn.jpg",
+                "Name": "王磊",
+                "Email": "",
+                "TeamId": 0,
+                "Phone": "",
+                "GlobalKey": "",
+                "TeamGlobalKey": ""
+            },
+            "StartDate": 255456000000,
+            "DueDate": 256319999000,
+            "WorkingHours": 6,
+            "Creator": {
+                "Id": 183478,
+                "Status": 1,
+                "Avatar": "https:\/\/coding-net-production-static-ci.codehub.cn\/2cb665a3-bebc-4b09-aa00-2b6df3e33edc.jpg?imageMogr2\/auto-orient\/format\/jpeg\/cut\/400x400x0x0",
+                "Name": "sinkcup",
+                "Email": "",
+                "TeamId": 0,
+                "Phone": "",
+                "GlobalKey": "",
+                "TeamGlobalKey": ""
+            },
+            "StoryPoint": "1.0",
+            "CreatedAt": 1635147624016,
+            "UpdatedAt": 1635147624016,
+            "CompletedAt": 0,
+            "ProjectModule": {
+                "Id": 0,
+                "Name": ""
+            },
+            "Watchers": [
+                {
+                    "Id": 7877000,
+                    "Status": 1,
+                    "Avatar": "https:\/\/coding-net-production-static-ci.codehub.cn\/WM-TEXT-AVATAR-jJYOMnZHSaklwOoKpkBl.jpg",
+                    "Name": "韦酉旺",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                },
+                {
+                    "Id": 8124791,
+                    "Status": 1,
+                    "Avatar": "https:\/\/coding-net-production-static-ci.codehub.cn\/b37f6df8-4364-4131-854e-7a6a2f594a18.jpg?imageMogr2\/auto-orient\/format\/jpeg\/cut\/678x678x0x0",
+                    "Name": "钟其翁",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                }
+            ],
+            "Labels": [],
+            "Files": [],
+            "RequirementType": {
+                "Id": 0,
+                "Name": ""
+            },
+            "DefectType": {
+                "Id": 0,
+                "Name": "",
+                "IconUrl": ""
+            },
+            "CustomFields": [
+                {
+                    "Id": 35806839,
+                    "ValueString": "{\"Id\":7877000,\"Status\":1,\"GlobalKey\":\"bDUojijOpz\",\"Avatar\":\"https:\/\/coding-net-production-static-ci.codehub.cn\/WM-TEXT-AVATAR-jJYOMnZHSaklwOoKpkBl.jpg\",\"Media\":\"https:\/\/coding-net-production-static-ci.codehub.cn\/WM-TEXT-AVATAR-jJYOMnZHSaklwOoKpkBl.jpg\",\"Name\":\"韦酉旺\",\"Email\":\"\",\"Name_pinyin\":\"wyw||weiyouwang\"}"
+                }
+            ],
+            "ThirdLinks": [
+                {
+                    "Id": 1138,
+                    "ThirdType": "MODAO",
+                    "Link": "<iframe src=\"https:\/\/modao.cc\/app\/7fb28d9af13827fd009f401579cbdc3cef2a456a\/embed\/v2\" \/>",
+                    "Title": "墨刀原型"
+                },
+                {
+                    "Id": 1139,
+                    "ThirdType": "CODESIGN",
+                    "Link": "https:\/\/codesign.qq.com\/s\/ALwE9VKWgl0X1Dp",
+                    "Title": "CoDesign - 腾讯自研设计协作平台"
+                }
+            ],
+            "SubTasks": [],
+            "Parent": {
+                "Code": 0,
+                "Type": "",
+                "Name": "",
+                "IssueStatusId": 0,
+                "IssueStatusName": "",
+                "Priority": "",
+                "Assignee": {
+                    "Id": 0,
+                    "Status": 0,
+                    "Avatar": "",
+                    "Name": "",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                },
+                "IssueStatusType": "",
+                "IssueTypeDetail": {
+                    "Id": 0,
+                    "Name": "",
+                    "IssueType": "",
+                    "Description": "",
+                    "IsSystem": false
+                }
+            },
+            "Iteration": {
+                "Code": 0,
+                "Name": "",
+                "Status": ""
+            },
+            "IssueTypeDetail": {
+                "Id": 213220,
+                "Name": "任务",
+                "IssueType": "MISSION",
+                "Description": "任务是指为实现某个目标或需求所进行的具体活动。",
+                "IsSystem": true
+            },
+            "IssueTypeId": 213220
+        }
+    }
+}
