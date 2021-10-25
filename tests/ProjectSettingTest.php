@@ -2,6 +2,7 @@
 
 namespace Coding\Tests;
 
+use Coding\Issue;
 use Coding\ProjectSetting;
 
 class ProjectSettingTest extends TestCase
@@ -23,5 +24,26 @@ class ProjectSettingTest extends TestCase
         $projectSetting = new ProjectSetting($this->token, $this->coreMock);
         $result = $projectSetting->getIssueTypes($data);
         $this->assertEquals($response['IssueTypes'], $result);
+    }
+
+    public function testGetIssueStatus()
+    {
+        $response = json_decode(
+            file_get_contents($this->dataPath('DescribeProjectIssueStatusListResponse.json')),
+            true
+        )['Response'];
+        $data = [
+            'ProjectName' => $this->projectName,
+            'IssueType' => $this->faker->randomElement(Issue::TYPE),
+            'IssueTypeId' => $this->faker->randomNumber(),
+        ];
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+            'DescribeProjectIssueStatusList',
+            $data
+        ])->andReturn($response);
+
+        $projectSetting = new ProjectSetting($this->token, $this->coreMock);
+        $result = $projectSetting->getIssueStatus($data);
+        $this->assertEquals($response['ProjectIssueStatusList'], $result);
     }
 }
