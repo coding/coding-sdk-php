@@ -1,10 +1,11 @@
 <?php
 
-namespace Coding\Tests;
+namespace Tests\Unit;
 
 use Coding\Core;
 use Coding\Exceptions\ValidationException;
 use Coding\Iteration;
+use Tests\TestCase;
 
 class IterationTest extends TestCase
 {

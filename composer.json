@@ -20,7 +20,7 @@
         "psr-4": { "Coding\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Coding\\Tests\\": "tests/" }
+        "psr-4": { "Tests\\": "tests/" }
     },
     "scripts": {
         "post-install-cmd": [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding\Tests;
+namespace Tests;
 
 use Coding\Core;
 use Faker\Factory;
@@ -8,7 +8,7 @@ use Faker\Generator;
 use Mockery\Mock;
 use PHPUnit\Framework\TestCase as PhpUnitTestBase;
 
-class TestCase extends PhpunitTestBase
+class TestCase extends PhpUnitTestBase
 {
     protected Generator $faker;
     protected string $token;

@@ -1,11 +1,12 @@
 <?php
 
-namespace Coding\Tests;
+namespace Tests\Unit;
 
 use Coding\Exceptions\ApiError;
 use Coding\Core;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Tests\TestCase;
 
 class CoreTest extends TestCase
 {
