@@ -13,7 +13,7 @@ class IssueTest extends TestCase
             'ProjectName' => $this->projectName,
             'Name' => $this->faker->sentence,
             'Priority' => $this->faker->randomElement(Issue::PRIORITY),
-            'Type' => $this->faker->randomElement(Issue::TYPE),
+            'Type' => 'DEFECT',
         ];
 
         $issue = new Issue($this->token);
