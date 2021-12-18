@@ -1,9 +1,10 @@
 <?php
 
-namespace Coding\Tests;
+namespace Tests\Unit;
 
 use Coding\Core;
 use Coding\Issue;
+use Tests\TestCase;
 
 class IssueTest extends TestCase
 {

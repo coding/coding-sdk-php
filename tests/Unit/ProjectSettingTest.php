@@ -1,9 +1,10 @@
 <?php
 
-namespace Coding\Tests;
+namespace Tests\Unit;
 
 use Coding\Issue;
 use Coding\ProjectSetting;
+use Tests\TestCase;
 
 class ProjectSettingTest extends TestCase
 {
