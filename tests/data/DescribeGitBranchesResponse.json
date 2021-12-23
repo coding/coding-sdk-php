@@ -1,0 +1,32 @@
+{
+    "Response": {
+      "RequestId": "7c57d93d-e731-6150-8575-b3bf68f11b05",
+      "TotalCount": 4,
+      "Branches": [
+        {
+          "BranchName": "master",
+          "IsDefaultBranch": true,
+          "IsProtected": false,
+          "Sha": "92811220f02b7c9f1ef5559c74ced479f271c905"
+        },
+        {
+          "BranchName": "branch-1",
+          "IsDefaultBranch": false,
+          "IsProtected": false,
+          "Sha": "92811220f02b7c9f1ef5559c74ced479f271c905"
+        },
+        {
+          "BranchName": "branch-2",
+          "IsDefaultBranch": false,
+          "IsProtected": false,
+          "Sha": "92811220f02b7c9f1ef5559c74ced479f271c905"
+        },
+        {
+          "BranchName": "branch-3",
+          "IsDefaultBranch": false,
+          "IsProtected": false,
+          "Sha": "92811220f02b7c9f1ef5559c74ced479f271c905"
+        }
+      ]
+    }
+}
