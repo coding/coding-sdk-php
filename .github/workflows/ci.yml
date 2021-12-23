@@ -27,7 +27,7 @@ jobs:
         run: composer install
 
       - name: Lint
-        run: ./vendor/bin/phpcs --extensions=php --standard=PSR12 src/ tests/
+        run: ./vendor/bin/phpcs --standard=phpcs.xml src/ tests/
 
       - name: PHPMD
         run: ./vendor/bin/phpmd . text phpmd.xml --exclude vendor
