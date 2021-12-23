@@ -43,6 +43,7 @@ jobs:
           CODING_USERNAME: ${{ secrets.CODING_USERNAME }}
           CODING_TEAM_DOMAIN: ${{ secrets.CODING_TEAM_DOMAIN }}
           CODING_PROJECT_NAME: ${{ secrets.CODING_PROJECT_NAME }}
+          CODING_DEPOT_ID: ${{ secrets.CODING_DEPOT_ID }}
 
       - name: codecov
         uses: codecov/codecov-action@v2
