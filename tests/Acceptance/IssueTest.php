@@ -20,11 +20,12 @@ class IssueTest extends TestCase
         $result = $issue->create($data);
         $this->assertTrue(is_numeric($result['Code']));
 
-        // delete
-        $data = [
+        $params = [
             'ProjectName' => $this->projectName,
             'IssueCode' => $result['Code'],
         ];
-        $this->assertTrue($issue->delete($data));
+        $result = $issue->get($params);
+        $this->assertEquals($data['Name'], $result['Name']);
+        $this->assertTrue($issue->delete($params));
     }
 }

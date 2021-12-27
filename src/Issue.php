@@ -71,4 +71,14 @@ class Issue extends Base
         $this->core->request('DeleteIssue', $data);
         return true;
     }
+
+    public function get(array $data)
+    {
+        $this->validate($data, [
+            'ProjectName' => 'string|required',
+            'IssueCode' => 'integer|required',
+        ]);
+        $response = $this->core->request('DescribeIssue', $data);
+        return $response['Issue'];
+    }
 }
