@@ -1,0 +1,124 @@
+{
+    "Response": {
+        "RequestId": "8a6a4856-5de0-7270-6257-270e9b19d645",
+        "Issue": {
+            "Epic": {
+                "Code": 0,
+                "Type": "",
+                "Name": "",
+                "IssueStatusId": 0,
+                "IssueStatusName": "",
+                "Priority": "",
+                "Assignee": {
+                    "Id": 0,
+                    "Status": 0,
+                    "Avatar": "",
+                    "Name": "",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                }
+            },
+            "ParentType": "MISSION",
+            "Code": 1,
+            "Type": "MISSION",
+            "Name": "Molestiae vel soluta et at aliquam nam unde.",
+            "Description": "",
+            "IterationId": 0,
+            "IssueStatusId": 1227034,
+            "IssueStatusName": "未开始",
+            "IssueStatusType": "TODO",
+            "Priority": "1",
+            "Assignee": {
+                "Id": 183478,
+                "Status": 1,
+                "Avatar": "https://coding-net-production-static-ci.codehub.cn/2cb665a3-bebc-4b09-aa00-2b6df3e33edc.jpg?imageMogr2/auto-orient/format/jpeg/cut/400x400x0x0",
+                "Name": "sinkcup",
+                "Email": "",
+                "TeamId": 0,
+                "Phone": "",
+                "GlobalKey": "",
+                "TeamGlobalKey": ""
+            },
+            "StartDate": 0,
+            "DueDate": 0,
+            "WorkingHours": 0.0,
+            "Creator": {
+                "Id": 183478,
+                "Status": 1,
+                "Avatar": "https://coding-net-production-static-ci.codehub.cn/2cb665a3-bebc-4b09-aa00-2b6df3e33edc.jpg?imageMogr2/auto-orient/format/jpeg/cut/400x400x0x0",
+                "Name": "sinkcup",
+                "Email": "",
+                "TeamId": 0,
+                "Phone": "",
+                "GlobalKey": "",
+                "TeamGlobalKey": ""
+            },
+            "StoryPoint": "",
+            "CreatedAt": 1639820653000,
+            "UpdatedAt": 1640598932000,
+            "CompletedAt": 0,
+            "ProjectModule": {
+                "Id": 0,
+                "Name": ""
+            },
+            "Watchers": [],
+            "Labels": [],
+            "Files": [],
+            "RequirementType": {
+                "Id": 0,
+                "Name": ""
+            },
+            "DefectType": {
+                "Id": 0,
+                "Name": "",
+                "IconUrl": ""
+            },
+            "CustomFields": [],
+            "ThirdLinks": [],
+            "SubTasks": [],
+            "Parent": {
+                "Code": 0,
+                "Type": "",
+                "Name": "",
+                "IssueStatusId": 0,
+                "IssueStatusName": "",
+                "Priority": "",
+                "Assignee": {
+                    "Id": 0,
+                    "Status": 0,
+                    "Avatar": "",
+                    "Name": "",
+                    "Email": "",
+                    "TeamId": 0,
+                    "Phone": "",
+                    "GlobalKey": "",
+                    "TeamGlobalKey": ""
+                },
+                "IssueStatusType": "",
+                "IssueTypeDetail": {
+                    "Id": 0,
+                    "Name": "",
+                    "IssueType": "",
+                    "Description": "",
+                    "IsSystem": false
+                }
+            },
+            "Iteration": {
+                "Code": 0,
+                "Name": "",
+                "Status": ""
+            },
+            "IssueTypeDetail": {
+                "Id": 213220,
+                "Name": "任务",
+                "IssueType": "MISSION",
+                "Description": "任务是指为实现某个目标或需求所进行的具体活动。",
+                "IsSystem": true
+            },
+            "IssueTypeId": 213220
+        }
+    }
+}

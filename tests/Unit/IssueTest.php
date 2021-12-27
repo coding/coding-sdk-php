@@ -109,4 +109,24 @@ class IssueTest extends TestCase
         $issue = new Issue($this->token, $this->coreMock);
         $this->assertTrue($issue->delete($data));
     }
+
+    public function testGet()
+    {
+        $response = json_decode(
+            file_get_contents($this->dataPath('DescribeIssueResponse.json')),
+            true
+        )['Response'];
+        $data = [
+            'ProjectName' => $this->projectName,
+            'IssueCode' => $this->faker->randomNumber(),
+        ];
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+            'DescribeIssue',
+            $data
+        ])->andReturn($response);
+
+        $issue = new Issue($this->token, $this->coreMock);
+        $result = $issue->get($data);
+        $this->assertEquals($response['Issue'], $result);
+    }
 }
