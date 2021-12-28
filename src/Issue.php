@@ -81,4 +81,44 @@ class Issue extends Base
         $response = $this->core->request('DescribeIssue', $data);
         return $response['Issue'];
     }
+
+    public function update(array $data)
+    {
+        $this->validate($data, [
+            'ProjectName' => 'string|required',
+            'IssueCode' => 'integer',
+            'ParentCode' => 'nullable|integer',
+            'Name' => 'nullable|string',
+            'StatusId' => 'nullable|integer',
+            'AssigneeId' => 'nullable|integer',
+            'DueDate' => 'nullable|date_format:Y-m-d|after:StartDate',
+            'StartDate' => 'nullable|date_format:Y-m-d',
+            'WorkingHours' => 'nullable|numeric',
+            // 项目模块 ID
+            'ProjectModuleId' => 'nullable|integer',
+            // 事项关注人 ID 列表
+            'WatcherIds' => 'nullable|array',
+            'WatcherIds.*' => 'integer',
+            // 删除的事项关注人 Id 列表
+            'DelWatcherIds' => 'nullable|array',
+            // 项目缺陷类型 ID
+            'DefectTypeId' => 'nullable|integer',
+            // 项目需求类型 ID
+            'RequirementTypeId' => 'nullable|integer',
+            'Priority' => [
+                'string',
+                'nullable',
+                Rule::in(array_values(self::PRIORITY)),
+            ],
+            'StoryPoint' => 'nullable|string',
+            'LabelIds' => 'nullable|array',
+            'DelLabelIds' => 'nullable|array',
+            'FileIds' => 'nullable|array',
+            'DelFileIds' => 'nullable|array',
+            // 自定义属性值列表 Array of IssueCustomFieldForm
+            'CustomFieldValues' => 'nullable|array',
+        ]);
+        $response = $this->core->request('ModifyIssue', $data);
+        return $response['Issue'];
+    }
 }
