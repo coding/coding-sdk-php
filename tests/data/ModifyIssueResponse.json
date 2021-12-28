@@ -1,0 +1,124 @@
+{
+   "Response" : {
+      "Issue" : {
+         "Assignee" : {
+            "Avatar" : "https://coding-net-production-static-ci.codehub.cn/2cb665a3-bebc-4b09-aa00-2b6df3e33edc.jpg?imageMogr2/auto-orient/format/jpeg/cut/400x400x0x0",
+            "Email" : "",
+            "GlobalKey" : "",
+            "Id" : 183478,
+            "Name" : "sinkcup",
+            "Phone" : "",
+            "Status" : 1,
+            "TeamGlobalKey" : "",
+            "TeamId" : 0
+         },
+         "Code" : 1,
+         "CompletedAt" : 0,
+         "CreatedAt" : 1639820653000,
+         "Creator" : {
+            "Avatar" : "https://coding-net-production-static-ci.codehub.cn/2cb665a3-bebc-4b09-aa00-2b6df3e33edc.jpg?imageMogr2/auto-orient/format/jpeg/cut/400x400x0x0",
+            "Email" : "",
+            "GlobalKey" : "",
+            "Id" : 183478,
+            "Name" : "sinkcup",
+            "Phone" : "",
+            "Status" : 1,
+            "TeamGlobalKey" : "",
+            "TeamId" : 0
+         },
+         "CustomFields" : [],
+         "DefectType" : {
+            "IconUrl" : "",
+            "Id" : 0,
+            "Name" : ""
+         },
+         "Description" : "",
+         "DueDate" : 0,
+         "Epic" : {
+            "Assignee" : {
+               "Avatar" : "",
+               "Email" : "",
+               "GlobalKey" : "",
+               "Id" : 0,
+               "Name" : "",
+               "Phone" : "",
+               "Status" : 0,
+               "TeamGlobalKey" : "",
+               "TeamId" : 0
+            },
+            "Code" : 0,
+            "IssueStatusId" : 0,
+            "IssueStatusName" : "",
+            "Name" : "",
+            "Priority" : "",
+            "Type" : ""
+         },
+         "Files" : [],
+         "IssueStatusId" : 1227034,
+         "IssueStatusName" : "未开始",
+         "IssueStatusType" : "TODO",
+         "IssueTypeDetail" : {
+            "Description" : "任务是指为实现某个目标或需求所进行的具体活动。",
+            "Id" : 213220,
+            "IsSystem" : true,
+            "IssueType" : "MISSION",
+            "Name" : "任务"
+         },
+         "IssueTypeId" : 213220,
+         "Iteration" : {
+            "Code" : 0,
+            "Name" : "",
+            "Status" : ""
+         },
+         "IterationId" : 0,
+         "Labels" : [],
+         "Name" : "foo",
+         "Parent" : {
+            "Assignee" : {
+               "Avatar" : "",
+               "Email" : "",
+               "GlobalKey" : "",
+               "Id" : 0,
+               "Name" : "",
+               "Phone" : "",
+               "Status" : 0,
+               "TeamGlobalKey" : "",
+               "TeamId" : 0
+            },
+            "Code" : 0,
+            "IssueStatusId" : 0,
+            "IssueStatusName" : "",
+            "IssueStatusType" : "",
+            "IssueTypeDetail" : {
+               "Description" : "",
+               "Id" : 0,
+               "IsSystem" : false,
+               "IssueType" : "",
+               "Name" : ""
+            },
+            "Name" : "",
+            "Priority" : "",
+            "Type" : ""
+         },
+         "ParentType" : "MISSION",
+         "Priority" : "1",
+         "ProjectModule" : {
+            "Id" : 0,
+            "Name" : ""
+         },
+         "RequirementType" : {
+            "Id" : 0,
+            "Name" : ""
+         },
+         "StartDate" : 0,
+         "StoryPoint" : "1.0",
+         "SubTasks" : [],
+         "ThirdLinks" : [],
+         "Type" : "MISSION",
+         "UpdatedAt" : 1640673221097,
+         "Watchers" : [],
+         "WorkingHours" : 0
+      },
+      "RequestId" : "4a86eaae-e867-1520-f7c2-7d3051f86d48"
+   }
+}

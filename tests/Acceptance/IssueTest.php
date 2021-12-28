@@ -7,7 +7,7 @@ use Coding\Issue;
 
 class IssueTest extends TestCase
 {
-    public function testCreateAndDelete()
+    public function testCrud()
     {
         $data = [
             'ProjectName' => $this->projectName,
@@ -26,6 +26,12 @@ class IssueTest extends TestCase
         ];
         $result = $issue->get($params);
         $this->assertEquals($data['Name'], $result['Name']);
+        $this->assertEmpty($result['StoryPoint']);
+
+        $params['StoryPoint'] = '1.0';
+        $result = $issue->update($params);
+        $this->assertEquals('1.0', $result['StoryPoint']);
+
         $this->assertTrue($issue->delete($params));
     }
 }
