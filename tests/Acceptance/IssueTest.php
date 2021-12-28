@@ -4,6 +4,7 @@ namespace Tests\Acceptance;
 
 use Coding\Core;
 use Coding\Issue;
+use Coding\ProjectSetting;
 
 class IssueTest extends TestCase
 {
@@ -17,6 +18,7 @@ class IssueTest extends TestCase
         ];
 
         $issue = new Issue($this->token);
+        $projectSetting = new ProjectSetting($this->token);
         $result = $issue->create($data);
         $this->assertTrue(is_numeric($result['Code']));
 
@@ -28,9 +30,19 @@ class IssueTest extends TestCase
         $this->assertEquals($data['Name'], $result['Name']);
         $this->assertEmpty($result['StoryPoint']);
 
-        $params['StoryPoint'] = '1.0';
-        $result = $issue->update($params);
-        $this->assertEquals('1.0', $result['StoryPoint']);
+        $statuses = $projectSetting->getIssueStatuses([
+            'ProjectName' => $this->projectName,
+            'IssueTypeId' => $result['IssueTypeId'],
+        ]);
+
+        $storyPoint = '1.0';
+        $statusId = end($statuses)['IssueStatusId'];
+        $result = $issue->update(array_merge($params, [
+            'StoryPoint' => $storyPoint,
+            'StatusId' => $statusId,
+        ]));
+        $this->assertEquals($storyPoint, $result['StoryPoint']);
+        $this->assertEquals($statusId, $result['IssueStatusId']);
 
         $this->assertTrue($issue->delete($params));
     }
