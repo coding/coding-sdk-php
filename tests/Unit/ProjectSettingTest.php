@@ -27,7 +27,7 @@ class ProjectSettingTest extends TestCase
         $this->assertEquals($response['IssueTypes'], $result);
     }
 
-    public function testGetIssueStatus()
+    public function testGetIssueStatuses()
     {
         $response = json_decode(
             file_get_contents($this->dataPath('DescribeProjectIssueStatusListResponse.json')),
@@ -44,7 +44,7 @@ class ProjectSettingTest extends TestCase
         ])->andReturn($response);
 
         $projectSetting = new ProjectSetting($this->token, $this->coreMock);
-        $result = $projectSetting->getIssueStatus($data);
+        $result = $projectSetting->getIssueStatuses($data);
         $this->assertEquals($response['ProjectIssueStatusList'], $result);
     }
 }

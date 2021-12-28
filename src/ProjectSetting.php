@@ -15,12 +15,12 @@ class ProjectSetting extends Base
         return $response['IssueTypes'];
     }
 
-    public function getIssueStatus(array $data)
+    public function getIssueStatuses(array $data)
     {
         $this->validate($data, [
             'ProjectName' => 'string|required',
             'IssueType' => [
-                'required',
+                'required_without:IssueTypeId',
                 Rule::in(Issue::TYPE),
             ],
             'IssueTypeId' => 'nullable|integer',
