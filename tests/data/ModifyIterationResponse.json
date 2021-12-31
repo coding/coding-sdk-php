@@ -1,0 +1,24 @@
+{
+   "Response" : {
+      "Iteration" : {
+         "Assignee" : 0,
+         "Code" : 20,
+         "CompletedCount" : 0,
+         "CompletedPercent" : 0,
+         "Completer" : 0,
+         "CreatedAt" : 1640921166000,
+         "Creator" : 183478,
+         "Deleter" : 0,
+         "EndAt" : -28800000,
+         "Goal" : "foo",
+         "Name" : "sprint 666",
+         "ProcessingCount" : 0,
+         "StartAt" : -28800000,
+         "Starter" : 0,
+         "Status" : "WAIT_PROCESS",
+         "UpdatedAt" : 1640921166000,
+         "WaitProcessCount" : 0
+      },
+      "RequestId" : "0761cb2d-601c-1db3-f796-73b03d28fe85"
+   }
+}
