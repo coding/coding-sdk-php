@@ -122,4 +122,23 @@ class IterationTest extends TestCase
         $result = $iteration->get($data);
         $this->assertEquals($response['Iteration'], $result);
     }
+
+    public function testDelete()
+    {
+        $response = json_decode(
+            file_get_contents($this->dataPath('DeleteIterationResponse.json')),
+            true
+        )['Response'];
+        $data = [
+            'ProjectName' => $this->projectName,
+            'IterationCode' => $this->faker->randomNumber(),
+        ];
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+            'DeleteIteration',
+            $data
+        ])->andReturn($response);
+
+        $issue = new Iteration($this->token, $this->coreMock);
+        $this->assertTrue($issue->delete($data));
+    }
 }

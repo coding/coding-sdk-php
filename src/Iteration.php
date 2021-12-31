@@ -27,4 +27,14 @@ class Iteration extends Base
         $response = $this->core->request('DescribeIteration', $data);
         return $response['Iteration'];
     }
+
+    public function delete(array $data)
+    {
+        $this->validate($data, [
+            'ProjectName' => 'string|required',
+            'IterationCode' => 'integer|required',
+        ]);
+        $this->core->request('DeleteIteration', $data);
+        return true;
+    }
 }
