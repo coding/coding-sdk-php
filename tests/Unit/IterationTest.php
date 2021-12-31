@@ -102,4 +102,24 @@ class IterationTest extends TestCase
         $this->expectExceptionMessage('The end at must be a date after start at.');
         $iteration->create($data);
     }
+
+    public function testGet()
+    {
+        $response = json_decode(
+            file_get_contents($this->dataPath('DescribeIterationResponse.json')),
+            true
+        )['Response'];
+        $data = [
+            'ProjectName' => $this->projectName,
+            'IterationCode' => $this->faker->randomNumber(),
+        ];
+        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+            'DescribeIteration',
+            $data
+        ])->andReturn($response);
+
+        $iteration = new Iteration($this->token, $this->coreMock);
+        $result = $iteration->get($data);
+        $this->assertEquals($response['Iteration'], $result);
+    }
 }

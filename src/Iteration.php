@@ -17,4 +17,14 @@ class Iteration extends Base
         $response = $this->core->request('CreateIteration', $data);
         return $response['Iteration'];
     }
+
+    public function get(array $data)
+    {
+        $this->validate($data, [
+            'ProjectName' => 'string|required',
+            'IterationCode' => 'integer|required',
+        ]);
+        $response = $this->core->request('DescribeIteration', $data);
+        return $response['Iteration'];
+    }
 }
