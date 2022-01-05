@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding;
 
 use Illuminate\Validation\Rule;
 
 class GitBranch extends Base
 {
-    public function index(array $data)
+    public function index(array $data): array
     {
         $this->validate($data, [
             'DepotId' => 'integer|required',

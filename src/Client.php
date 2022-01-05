@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding;
 
 use Coding\Exceptions\ApiError;
@@ -34,14 +36,14 @@ class Client
 
     public function getHttpClient(): ClientInterface
     {
-        if (null === $this->http) {
+        if (is_null($this->http)) {
             $this->http = new GuzzleClient();
         }
 
         return $this->http;
     }
 
-    public function request(string $action, array $data)
+    public function request(string $action, array $data): array
     {
         $params = ['Action' => $action];
         $response = $this->getHttpClient()->request('POST', $this->config['api_url'], [
@@ -52,14 +54,14 @@ class Client
             ],
             'json' => array_merge($params, $data),
         ]);
-        $result = json_decode($response->getBody(), true);
+        $result = json_decode($response->getBody()->getContents(), true);
         if (isset($result['Response']['Error']['Message'])) {
             throw new ApiError($result['Response']['Error']['Message']);
         }
         return $result['Response'];
     }
 
-    public function requestProjectApi(string $action, array $data = [])
+    public function requestProjectApi(string $action, array $data = []): array
     {
         if (empty($this->config['project_name'])) {
             throw new ValidationException('Need set project name first.');
@@ -68,22 +70,22 @@ class Client
         return $this->request($action, $data);
     }
 
-    public function setPersonalToken(string $token)
+    public function setPersonalToken(string $token): void
     {
         $this->config['personal_token'] = $token;
     }
 
-    public function setProjectName(string $projectName)
+    public function setProjectName(string $projectName): void
     {
         $this->config['project_name'] = $projectName;
     }
 
-    public function setProjectToken(string $token)
+    public function setProjectToken(string $token): void
     {
         $this->config['project_token'] = $token;
     }
 
-    private function getToken()
+    private function getToken(): string
     {
         if ($this->usePersonalToken) {
             if (empty($this->config['personal_token'])) {
