@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Coding\Core;
+use Coding\Client;
 use Faker\Factory;
 use Faker\Generator;
 use Mockery\Mock;
@@ -11,19 +11,21 @@ use PHPUnit\Framework\TestCase as PhpUnitTestBase;
 class TestCase extends PhpUnitTestBase
 {
     protected Generator $faker;
-    protected string $token;
+    protected string $personalToken;
     protected string $projectName;
-    protected bool $needCoreMock = true;
-    protected $coreMock;
+    protected bool $needClientMock = true;
+    protected $clientMock;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->faker = Factory::create();
-        $this->token = $this->faker->md5;
+        $this->personalToken = $this->faker->md5;
         $this->projectName = $this->faker->slug;
-        if ($this->needCoreMock) {
-            $this->coreMock = \Mockery::mock(Core::class, [])->makePartial();
+        if ($this->needClientMock) {
+            $this->clientMock = \Mockery::mock(Client::class, [])->makePartial();
+            $this->clientMock->setPersonalToken($this->personalToken);
+            $this->clientMock->setProjectName($this->projectName);
         }
     }
 

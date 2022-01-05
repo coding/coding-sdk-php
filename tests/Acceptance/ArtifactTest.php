@@ -2,9 +2,7 @@
 
 namespace Tests\Acceptance;
 
-use Coding\Core;
-use Coding\Issue;
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Psr7;
 
 class ArtifactTest extends TestCase
@@ -16,14 +14,14 @@ class ArtifactTest extends TestCase
         $package = 'status.txt';
         $version = date('Ymd.Hi.s', time());
         file_put_contents($package, $version);
-        $client = new Client();
+        $http = new GuzzleClient();
         $body = Psr7\Utils::tryFopen($package, 'r');
         $url = "https://${teamDomain}-generic.pkg.coding.net/${projectName}/generic/${package}?version=${version}";
         $auth = [
             getenv('CODING_USERNAME'),
             getenv('CODING_PASSWORD'),
         ];
-        $response = $client->request('PUT', $url, [
+        $response = $http->request('PUT', $url, [
             'auth' => $auth,
             'body' => $body,
         ]);
@@ -31,7 +29,7 @@ class ArtifactTest extends TestCase
 
         // Download
         $tmpfname = tempnam(sys_get_temp_dir(), $package);
-        $client->request('GET', $url, [
+        $http->request('GET', $url, [
             'auth' => $auth,
             'sink' => $tmpfname,
         ]);

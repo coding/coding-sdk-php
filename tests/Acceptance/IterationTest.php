@@ -8,17 +8,15 @@ class IterationTest extends TestCase
 {
     public function testCrud()
     {
-        $data = [
-            'ProjectName' => $this->projectName,
+        $params = [
             'Name' => $this->faker->sentence(2),
         ];
 
-        $iteration = new Iteration($this->token);
-        $createResult = $iteration->create($data);
+        $iteration = new Iteration($this->client);
+        $createResult = $iteration->create($params);
         $this->assertTrue(is_numeric($createResult['Code']));
 
         $params = [
-            'ProjectName' => $this->projectName,
             'IterationCode' => $createResult['Code'],
         ];
         $getResult = $iteration->get($params);

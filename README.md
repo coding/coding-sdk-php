@@ -20,12 +20,15 @@ composer require coding/sdk
 
 require 'vendor/autoload.php';
 
+use Coding\Client;
 use Coding\Iteration;
 
-$iteration = new Iteration('c127894e5a851cef22dc317f882dfb9ca6054321');
-$projectName = 'project-foo';
+$client = new Client();
+$client->setProjectName('project-foo');
+$client->setProjectToken('c127894e5a851cef22dc317f882dfb9ca6054321');
+
+$iteration = new Iteration($client);
 $result = $iteration->create([
-    'ProjectName' => $projectName,
     'Name' => 'Sprint 1',
 ]);
 echo "https://my-team.coding.net/p/{$projectName}/iterations/${result['Code']}/issues\n";

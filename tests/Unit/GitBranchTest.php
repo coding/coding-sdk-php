@@ -20,12 +20,12 @@ class GitBranchTest extends TestCase
             'PageSize' => $this->faker->randomNumber(),
             'KeyWord' => $this->faker->word(),
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'DescribeGitBranches',
             $data
         ])->andReturn($response);
 
-        $branch = new GitBranch($this->token, $this->coreMock);
+        $branch = new GitBranch($this->clientMock);
         $result = $branch->index($data);
         $this->assertEquals($response['Branches'], $result);
     }
