@@ -24,14 +24,16 @@ use Coding\Client;
 use Coding\Iteration;
 
 $client = new Client();
-$client->setProjectName('project-foo');
+$projectName = 'project-foo';
+$client->setProjectName($projectName);
 $client->setProjectToken('c127894e5a851cef22dc317f882dfb9ca6054321');
 
 $iteration = new Iteration($client);
 $result = $iteration->create([
     'Name' => 'Sprint 1',
 ]);
-echo "https://my-team.coding.net/p/{$projectName}/iterations/${result['Code']}/issues\n";
+$teamDomain = 'my-team';
+echo "https://${teamDomain}.coding.net/p/{$projectName}/iterations/${result['Code']}/issues\n";
 ```
 
 ## Resources
