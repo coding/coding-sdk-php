@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding;
 
 use Coding\Exceptions\ValidationException;
@@ -14,7 +16,7 @@ abstract class Base
         $this->client = $client ?? new Client();
     }
 
-    protected function validate(array $data, array $rules)
+    protected function validate(array $data, array $rules): void
     {
         $validator = Validator::getInstance()->make($data, $rules);
         if ($validator->fails()) {

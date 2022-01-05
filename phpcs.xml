@@ -1,9 +1,19 @@
 <?xml version="1.0"?>
-<ruleset name="PSR12-FOO">
-  <description>The PSR12 standard.</description>
+<ruleset name="PSR12-Slevomat">
   <exclude-pattern>/vendor/</exclude-pattern>
   <arg name="extensions" value="php" />
 
   <!-- Include the whole PSR12 standard -->
-  <rule ref="PSR12"/>
+  <rule ref="PSR12" />
+
+  <config name="installed_paths" value="../../slevomat/coding-standard" />
+  <rule ref="SlevomatCodingStandard.ControlStructures.DisallowYodaComparison" />
+  <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+    <properties>
+      <property name="declareOnFirstLine" value="false" />
+      <property name="linesCountBeforeDeclare" value="1" />
+      <property name="linesCountAfterDeclare" value="1" />
+      <property name="spacesCountAroundEqualsSign" value="0" />
+    </properties>
+  </rule>
 </ruleset>

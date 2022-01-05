@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Acceptance;
 
 use GuzzleHttp\Client as GuzzleClient;

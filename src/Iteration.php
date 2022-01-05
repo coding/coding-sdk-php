@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding;
 
 class Iteration extends Base
 {
-    public function create(array $data)
+    public function create(array $data): array
     {
         $this->validate($data, [
             'Name' => 'string|required',
@@ -17,7 +19,7 @@ class Iteration extends Base
         return $response['Iteration'];
     }
 
-    public function get(array $data)
+    public function get(array $data): array
     {
         $this->validate($data, [
             'IterationCode' => 'integer|required',
@@ -26,7 +28,7 @@ class Iteration extends Base
         return $response['Iteration'];
     }
 
-    public function update(array $data)
+    public function update(array $data): array
     {
         $this->validate($data, [
             'IterationCode' => 'integer|required',
@@ -40,7 +42,7 @@ class Iteration extends Base
         return $response['Iteration'];
     }
 
-    public function delete(array $data)
+    public function delete(array $data): bool
     {
         $this->validate($data, [
             'IterationCode' => 'integer|required',

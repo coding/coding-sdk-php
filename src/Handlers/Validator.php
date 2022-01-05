@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding\Handlers;
 
 use Illuminate\Filesystem\Filesystem;

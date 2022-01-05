@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Coding;
 
 use Illuminate\Validation\Rule;
@@ -14,7 +16,7 @@ class Issue extends Base
         '紧急' => '3',
     ];
 
-    public function create(array $data)
+    public function create(array $data): array
     {
         $this->validate($data, [
             'Name' => 'string|required',
@@ -61,7 +63,7 @@ class Issue extends Base
         return $response['Issue'];
     }
 
-    public function delete(array $data)
+    public function delete(array $data): bool
     {
         $this->validate($data, [
             'IssueCode' => 'integer|required',
@@ -70,7 +72,7 @@ class Issue extends Base
         return true;
     }
 
-    public function get(array $data)
+    public function get(array $data): array
     {
         $this->validate($data, [
             'IssueCode' => 'integer|required',
@@ -79,7 +81,7 @@ class Issue extends Base
         return $response['Issue'];
     }
 
-    public function update(array $data)
+    public function update(array $data): array
     {
         $this->validate($data, [
             'IssueCode' => 'integer',
