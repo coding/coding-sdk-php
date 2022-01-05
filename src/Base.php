@@ -7,16 +7,11 @@ use Coding\Handlers\Validator;
 
 abstract class Base
 {
-    protected Core $core;
+    protected Client $client;
 
-    public function __construct(string $token = '', Core $core = null)
+    public function __construct(Client $client = null)
     {
-        $this->core = $core ?? new Core($token);
-    }
-
-    public function setToken(string $token)
-    {
-        $this->core->setToken($token);
+        $this->client = $client ?? new Client();
     }
 
     protected function validate(array $data, array $rules)

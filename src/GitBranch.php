@@ -15,7 +15,7 @@ class GitBranch extends Base
             'KeyWord' => 'string', // 搜索关键字
         ]);
         $data['DepotId'] = intval($data['DepotId']);
-        $response = $this->core->request('DescribeGitBranches', $data);
+        $response = $this->client->requestProjectApi('DescribeGitBranches', $data);
         return $response['Branches'];
     }
 }

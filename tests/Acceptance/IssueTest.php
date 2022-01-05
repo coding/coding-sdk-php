@@ -11,19 +11,17 @@ class IssueTest extends TestCase
     public function testCrud()
     {
         $data = [
-            'ProjectName' => $this->projectName,
             'Name' => $this->faker->sentence,
             'Priority' => $this->faker->randomElement(Issue::PRIORITY),
             'Type' => 'DEFECT',
         ];
 
-        $issue = new Issue($this->token);
-        $projectSetting = new ProjectSetting($this->token);
+        $issue = new Issue($this->client);
+        $projectSetting = new ProjectSetting($this->client);
         $result = $issue->create($data);
         $this->assertTrue(is_numeric($result['Code']));
 
         $params = [
-            'ProjectName' => $this->projectName,
             'IssueCode' => $result['Code'],
         ];
         $result = $issue->get($params);
@@ -31,7 +29,6 @@ class IssueTest extends TestCase
         $this->assertEmpty($result['StoryPoint']);
 
         $statuses = $projectSetting->getIssueStatuses([
-            'ProjectName' => $this->projectName,
             'IssueTypeId' => $result['IssueTypeId'],
         ]);
 

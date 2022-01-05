@@ -8,6 +8,14 @@ use Tests\TestCase;
 
 class IssueTest extends TestCase
 {
+    private Issue $issue;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->issue = new Issue($this->clientMock);
+    }
+
     public function testCreateSuccessWithOnlyRequiredParams()
     {
         $response = json_decode(
@@ -15,18 +23,16 @@ class IssueTest extends TestCase
             true
         )['Response'];
         $data = [
-            'ProjectName' => $this->projectName,
             'Name' => $this->faker->sentence,
             'Priority' => $this->faker->randomElement(Issue::PRIORITY),
             'Type' => $this->faker->randomElement(Issue::TYPE),
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'CreateIssue',
             $data
         ])->andReturn($response);
 
-        $issue = new Issue($this->token, $this->coreMock);
-        $result = $issue->create($data);
+        $result = $this->issue->create($data);
         $this->assertEquals($response['Issue'], $result);
     }
 
@@ -38,7 +44,6 @@ class IssueTest extends TestCase
         )['Response'];
         $startDate = $this->faker->date();
         $data = [
-            'ProjectName' => $this->projectName,
             'Name' => $this->faker->sentence,
             'Priority' => $this->faker->randomElement(Issue::PRIORITY),
             'Type' => $this->faker->randomElement(Issue::TYPE),
@@ -80,14 +85,12 @@ class IssueTest extends TestCase
                 ],
             ],
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'CreateIssue',
             $data
         ])->andReturn($response);
 
-        $issue = new Issue('', $this->coreMock);
-        $issue->setToken($this->token);
-        $result = $issue->create($data);
+        $result = $this->issue->create($data);
         $this->assertEquals($response['Issue'], $result);
     }
 
@@ -98,16 +101,14 @@ class IssueTest extends TestCase
             true
         )['Response'];
         $data = [
-            'ProjectName' => $this->projectName,
             'IssueCode' => $this->faker->randomNumber(),
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'DeleteIssue',
             $data
         ])->andReturn($response);
 
-        $issue = new Issue($this->token, $this->coreMock);
-        $this->assertTrue($issue->delete($data));
+        $this->assertTrue($this->issue->delete($data));
     }
 
     public function testGet()
@@ -117,16 +118,14 @@ class IssueTest extends TestCase
             true
         )['Response'];
         $data = [
-            'ProjectName' => $this->projectName,
             'IssueCode' => $this->faker->randomNumber(),
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'DescribeIssue',
             $data
         ])->andReturn($response);
 
-        $issue = new Issue($this->token, $this->coreMock);
-        $result = $issue->get($data);
+        $result = $this->issue->get($data);
         $this->assertEquals($response['Issue'], $result);
     }
 
@@ -137,17 +136,15 @@ class IssueTest extends TestCase
             true
         )['Response'];
         $data = [
-            'ProjectName' => $this->projectName,
             'IssueCode' => $this->faker->randomNumber(),
             'StoryPoint' => "1.0",
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'ModifyIssue',
             $data
         ])->andReturn($response);
 
-        $issue = new Issue($this->token, $this->coreMock);
-        $result = $issue->update($data);
+        $result = $this->issue->update($data);
         $this->assertEquals($response['Issue'], $result);
     }
 }

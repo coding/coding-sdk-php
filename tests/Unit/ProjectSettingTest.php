@@ -14,16 +14,12 @@ class ProjectSettingTest extends TestCase
             file_get_contents($this->dataPath('DescribeProjectIssueTypeListResponse.json')),
             true
         )['Response'];
-        $data = [
-            'ProjectName' => $this->projectName,
-        ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
-            'DescribeProjectIssueTypeList',
-            $data
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
+            'DescribeProjectIssueTypeList'
         ])->andReturn($response);
 
-        $projectSetting = new ProjectSetting($this->token, $this->coreMock);
-        $result = $projectSetting->getIssueTypes($data);
+        $projectSetting = new ProjectSetting($this->clientMock);
+        $result = $projectSetting->getIssueTypes();
         $this->assertEquals($response['IssueTypes'], $result);
     }
 
@@ -34,16 +30,15 @@ class ProjectSettingTest extends TestCase
             true
         )['Response'];
         $data = [
-            'ProjectName' => $this->projectName,
             'IssueType' => $this->faker->randomElement(Issue::TYPE),
             'IssueTypeId' => $this->faker->randomNumber(),
         ];
-        $this->coreMock->shouldReceive('request')->times(1)->withArgs([
+        $this->clientMock->shouldReceive('requestProjectApi')->times(1)->withArgs([
             'DescribeProjectIssueStatusList',
             $data
         ])->andReturn($response);
 
-        $projectSetting = new ProjectSetting($this->token, $this->coreMock);
+        $projectSetting = new ProjectSetting($this->clientMock);
         $result = $projectSetting->getIssueStatuses($data);
         $this->assertEquals($response['ProjectIssueStatusList'], $result);
     }

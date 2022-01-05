@@ -17,7 +17,6 @@ class Issue extends Base
     public function create(array $data)
     {
         $this->validate($data, [
-            'ProjectName' => 'string|required',
             'Name' => 'string|required',
             'Priority' => [
                 'string',
@@ -58,34 +57,31 @@ class Issue extends Base
             // 自定义属性值列表 Array of IssueCustomFieldForm
             'CustomFieldValues' => 'nullable|array',
         ]);
-        $response = $this->core->request('CreateIssue', $data);
+        $response = $this->client->requestProjectApi('CreateIssue', $data);
         return $response['Issue'];
     }
 
     public function delete(array $data)
     {
         $this->validate($data, [
-            'ProjectName' => 'string|required',
             'IssueCode' => 'integer|required',
         ]);
-        $this->core->request('DeleteIssue', $data);
+        $this->client->requestProjectApi('DeleteIssue', $data);
         return true;
     }
 
     public function get(array $data)
     {
         $this->validate($data, [
-            'ProjectName' => 'string|required',
             'IssueCode' => 'integer|required',
         ]);
-        $response = $this->core->request('DescribeIssue', $data);
+        $response = $this->client->requestProjectApi('DescribeIssue', $data);
         return $response['Issue'];
     }
 
     public function update(array $data)
     {
         $this->validate($data, [
-            'ProjectName' => 'string|required',
             'IssueCode' => 'integer',
             'ParentCode' => 'nullable|integer',
             'Name' => 'nullable|string',
@@ -118,7 +114,7 @@ class Issue extends Base
             // 自定义属性值列表 Array of IssueCustomFieldForm
             'CustomFieldValues' => 'nullable|array',
         ]);
-        $response = $this->core->request('ModifyIssue', $data);
+        $response = $this->client->requestProjectApi('ModifyIssue', $data);
         return $response['Issue'];
     }
 }

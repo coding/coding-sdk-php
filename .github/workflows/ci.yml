@@ -38,10 +38,11 @@ jobs:
       - name: Acceptance Test
         run: ./vendor/bin/phpunit tests/Acceptance
         env:
-          CODING_TOKEN: ${{ secrets.CODING_TOKEN }}
+          CODING_PERSONAL_TOKEN: ${{ secrets.CODING_PERSONAL_TOKEN }}
           CODING_PASSWORD: ${{ secrets.CODING_PASSWORD }}
           CODING_USERNAME: ${{ secrets.CODING_USERNAME }}
           CODING_TEAM_DOMAIN: ${{ secrets.CODING_TEAM_DOMAIN }}
+          CODING_PROJECT_TOKEN: ${{ secrets.CODING_PROJECT_TOKEN }}
           CODING_PROJECT_NAME: ${{ secrets.CODING_PROJECT_NAME }}
           CODING_DEPOT_ID: ${{ secrets.CODING_DEPOT_ID }}
 

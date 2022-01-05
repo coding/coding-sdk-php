@@ -12,7 +12,7 @@ class GitBranchTest extends TestCase
         $data = [
             'DepotId' => getenv('CODING_DEPOT_ID'),
         ];
-        $branch = new GitBranch($this->token);
+        $branch = new GitBranch($this->client);
         $result = $branch->index($data);
         $names = [];
         foreach ($result as $branch) {
