@@ -27,13 +27,10 @@ jobs:
         run: composer install
 
       - name: Lint
-        run: ./vendor/bin/phpcs --standard=phpcs.xml src/ tests/
-
-      - name: PHPMD
-        run: ./vendor/bin/phpmd . text phpmd.xml --exclude vendor
+        run: composer lint
 
       - name: Unit Test
-        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-clover coverage.xml --coverage-filter src/ tests/Unit
+        run: composer test
 
       - name: Acceptance Test
         run: ./vendor/bin/phpunit tests/Acceptance

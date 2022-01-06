@@ -27,8 +27,9 @@
         "post-install-cmd": [
             "php -r \"if (is_dir('.git/hooks/')) {copy('.git-pre-commit', '.git/hooks/pre-commit'); chmod('.git/hooks/pre-commit', 0755);}\""
         ],
-        "lint": "phpcs --standard=phpcs.xml .",
-        "lint-fix": "phpcbf --standard=phpcs.xml ."
+        "lint": "phpcs --standard=phpcs.xml . && phpmd . text phpmd.xml --exclude vendor",
+        "lint-fix": "phpcbf --standard=phpcs.xml .",
+        "test": "XDEBUG_MODE=coverage phpunit --coverage-clover coverage.xml --coverage-filter src/ tests/Unit"
     },
     "config": {
         "allow-plugins": {
