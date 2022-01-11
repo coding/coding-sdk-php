@@ -19,9 +19,9 @@ class TestCase extends PhpUnitTestBase
     protected function setUp(): void
     {
         parent::setUp();
-        $personalToken = getenv('CODING_PERSONAL_TOKEN');
+        $personalToken = getenv('CODING_PERSONAL_TOKEN') ?: '';
         $projectName = getenv('CODING_PROJECT_NAME');
-        $projectToken = getenv('CODING_PROJECT_TOKEN');
+        $projectToken = getenv('CODING_PROJECT_TOKEN') ?: '';
         if (empty($personalToken) && empty($projectToken)) {
             throw new InvalidArgumentException('Please set CODING_PERSONAL_TOKEN or CODING_PROJECT_TOKEN'
              . ' environment variables');
